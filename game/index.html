@@ -41,6 +41,9 @@ var score = 0;
 var starsCollected = 0;
 var gameOver = false;
 var scoreText;
+// Music
+var bgm;
+var starCollectionSound
 
 var game = new Phaser.Game(config);
 
@@ -51,6 +54,8 @@ function preload ()
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.audio('bgm', 'assets/bgm.mp3');
+    //this.load.audio('starCollectionSound', 'assets/starcol.wav');
 }
 
 function create ()
@@ -134,6 +139,24 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+
+
+    //  Add our music
+    bgm = this.sound.add('bgm');
+    //starCollectionSound = this.add.audio('starCollectionSound')
+    
+    var loopMarker = {
+        name: 'loop',
+        start: 0,
+        config: {
+            loop: true
+        }
+    }
+
+    bgm.play({
+        loop:true
+    });
+
 }
 
 function update ()
