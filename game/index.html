@@ -21,7 +21,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 1000 },
+            gravity: { y: 300 },
             debug: false
         }
     },
@@ -158,7 +158,7 @@ function update ()
 
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.setVelocityY(-650);
+        player.setVelocityY(-310);
     }
 
 }
