@@ -15,8 +15,7 @@ The more stars you collect, the higher score you get.
 
 First of all, if you're familiar with Git and the commonly used Git repository services.
 You should know how to clone this repository to your local workplace.
-This game reqires:
-- Git
+This game requires:
 - Node
 - Express
 - Web Browser
