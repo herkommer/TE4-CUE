@@ -170,6 +170,7 @@ function collectStar (player, star)
 
     //  Add and update the score
     score += 1;
+    scoreText.setText('score: ' + score, { fontSize: '12px', fill: '#000' });
   
 
     if (stars.countActive(true) === 0)
