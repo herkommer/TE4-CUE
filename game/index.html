@@ -119,9 +119,10 @@ function create ()
     //  The score
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '12px', fill: '#000' });
 
-    //  Collide the player and the stars with the platforms
+    //  Collide the player and the stars and the bomb with the platforms
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);
+    this.physics.add.collider(bombs, platforms);
     
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
