@@ -38,6 +38,7 @@ var bombs;
 var platforms;
 var cursors;
 var score = 0;
+var starsCollected = 0;
 var gameOver = false;
 var scoreText;
 
@@ -169,8 +170,9 @@ function collectStar (player, star)
     star.disableBody(true, true);
 
     //  Add and update the score
-    score += 1;
-    scoreText.setText('score: ' + score, { fontSize: '12px', fill: '#000' });
+    starsCollected += 1;
+    score += 100 * starsCollected;
+    scoreText.setText('score: ' + score);
   
 
     if (stars.countActive(true) === 0)
