@@ -55,7 +55,7 @@ function preload ()
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     this.load.audio('bgm', 'assets/bgm.mp3');
-    //this.load.audio('starCollectionSound', 'assets/starcol.wav');
+    this.load.audio('starCollectionSound', 'assets/starcol.wav');
 }
 
 function create ()
@@ -143,7 +143,7 @@ function create ()
 
     //  Add our music
     bgm = this.sound.add('bgm');
-    //starCollectionSound = this.add.audio('starCollectionSound')
+    starCollectionSound = this.sound.add('starCollectionSound')
     
     var loopMarker = {
         name: 'loop',
@@ -196,6 +196,8 @@ function collectStar (player, star)
 {
     star.disableBody(true, true);
 
+    //play a sound
+    starCollectionSound.play();
     //  Add and update the score
     starsCollected += 1;
     score += 100 * starsCollected;
