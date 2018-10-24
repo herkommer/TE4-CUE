@@ -76,6 +76,10 @@ function create ()
 
     player.setCollideWorldBounds(true);
 
+    //player bounce settings
+    player.setBounce(0.4);
+    
+
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
         key: 'right',
