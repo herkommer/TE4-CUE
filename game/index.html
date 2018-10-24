@@ -44,6 +44,7 @@ var scoreText;
 // Music
 var bgm;
 var starCollectionSound
+var gameOverText;
 
 var game = new Phaser.Game(config);
 
@@ -56,6 +57,7 @@ function preload ()
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     this.load.audio('bgm', 'assets/bgm.mp3');
     this.load.audio('starCollectionSound', 'assets/starcol.wav');
+    this.load.bitmapFont('carrier_command', 'assets/fonts/bitmapFonts/carrier_command.png', 'assets/fonts/bitmapFonts/carrier_command.xml');
 }
 
 function create ()
@@ -127,7 +129,7 @@ function create ()
     bombs = this.physics.add.group();
 
     //  The score
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '20px', fill: '#000' });
+    scoreText = this.add.bitmapText(16, 16, 'carrier_command', 'score: 0', 20);
 
     //  Collide the player and the stars and the bomb with the platforms
     this.physics.add.collider(player, platforms);
@@ -233,6 +235,8 @@ function hitBomb (player, bomb)
     player.anims.play('turn');
 
     gameOver = true;
+
+    gameOverText = this.add.bitmapText(400, 300, 'carrier_command', 'GAME OVER', 36);
 }
 
 </script>
